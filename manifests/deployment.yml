@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: blslausexporter 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blslausexporter
+  template:
+    metadata:
+      labels:
+        app: blslausexporter 
+    spec:
+      containers:
+        - name: blslausexporter 
+          image: autocontainers.azurecr.io/blslausexporter
+          ports:
+          - containerPort: 8080
